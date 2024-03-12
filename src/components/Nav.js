@@ -10,21 +10,21 @@ function Nav() {
   }
 
   return (
-      <nav className="">
-        <a href="/">
+      <nav className={`navbar ${menuOpen ? "open" : ""}`}>
+        <a href="/" className="logo">
           <img src={logo} alt="logo"/>
         </a>
         {/* Mobile Bars */}
-        <div>
+        <div className="menu-icon" onClick={toggleMenu}>
           <img src={hamburgerIcon} alt="hamburgerIcon"/>
         </div>
 
         {/* Nav Menu */}
-        <ul>
+        <ul className={`nav-links ${menuOpen ? "visible" : ""}`}>
           <li><a href="/">Home</a></li>
           <li><a href="/">About</a></li>
           <li><a href="/">Menu</a></li>
-          <li><a href="/">Reservations</a></li>
+          <li><a href="/booking">Reservations</a></li>
           <li><a href="/">Order Online</a></li>
           <li><a href="/">Login</a></li>
 
