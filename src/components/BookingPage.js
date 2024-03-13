@@ -1,9 +1,9 @@
 import BookingForm from "./BookingForm";
-import {useState, useEffect} from 'react';
+import { useEffect} from 'react';
 
 function BookingPage(props) {
   useEffect(() => {
-    console.log("Page Props: ", props);
+    //console.log("Page Props: ", props);
    }, []);
 
   return (

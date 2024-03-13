@@ -27,13 +27,13 @@ function Main() {
   ]
 
    // API was not working from script given by coursera. Making own here
-   const submitAPI= function(formData) {
+  const submitAPI= function(formData) {
     return true;
   }
 
   const fetchAPI = function(date) {
     let day = date.getDate(); // Doesn't return exact day for some reason but times/dates update appropriately
-    if(day % 2 == 0 ){
+    if(day % 2 === 0 ){
       return evenTimes;
     } else {
       return oddTimes;
@@ -43,10 +43,8 @@ function Main() {
   const initialState = {availableTimes: evenTimes};
   const [state, dispatch] = useReducer(updateTimes, initialState);
 
- 
-
+  // Reducer function that accepts state and date value from input field
   function updateTimes(state, date) {
-
     return {availableTimes: fetchAPI(new Date(date))}
   }
 
@@ -63,7 +61,6 @@ function Main() {
           <Route path="/" element={<Header/>}/>
           <Route path="/booking" element={<BookingPage availableTimes={state.availableTimes} dispatch={dispatch} submitForm={submitForm}/>}/>
           <Route path="/confirmation" element={<BookingConfirmation/>}/>
-
         </Routes>
       </main>
   );

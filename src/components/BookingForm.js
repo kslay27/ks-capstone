@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 function BookingForm(props) {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-  const [guests, setGuests] = useState("");
+  const [guests, setGuests] = useState(0);
   const [occasion, setOccasion] = useState("");
 
   const occasions = ["Birthday", "Anniversary", "Engagement", "Graduation" ];
@@ -32,12 +32,12 @@ function BookingForm(props) {
             <fieldset className="formFieldset">
               <div>
                 <label htmlFor='date'>Choose a Date:</label>
-                <input id='date' value={date} data-testid="date" onChange={(e) => handleChange(e.target.value)} type='date' required/>
+                <input id='date' value={date} data-testid="dateTest" onChange={(e) => handleChange(e.target.value)} type='date' required/>
               </div>
 
               <div>
                 <label htmlFor='time'>Choose a Time:</label>
-                <select id='time'  value={time} onChange={(e) => setTime(e.target.value)}>
+                <select id='time' data-testid="timeTest" value={time} onChange={(e) => setTime(e.target.value)} required>
                   <option value=''>Select a Time</option>
                   {
                     props.availableTimes.map( (time) => {
@@ -49,16 +49,16 @@ function BookingForm(props) {
              
               <div>
                 <label htmlFor='guests'>Number of Guests:</label>
-                <input id='guests' min='1' style={{width:"70px"}} value={guests} onChange={(e) => setGuests(e.target.value)} type='number' placeholder="0"/>
+                <input id='guests' data-testid="guestsTest" type='number' min="1" style={{width:"70px"}} value={guests} onChange={(e) => setGuests(e.target.value)} required/>
               </div>
 
               <div>
                 <label htmlFor='occasion'>Select an Occasion:</label>
-                <select id='occasion' data-testid="select" value={occasion} onChange={(e) => setOccasion(e.target.value)}>
+                <select id='occasion' data-testid="occasionTest" value={occasion} onChange={(e) => setOccasion(e.target.value)}>
                   <option value=''>Select an Occasion</option>
                   {
                     occasions.map( (event) => {
-                      return(<option key={event} data-testid="select-option">{event}</option>);
+                      return(<option key={event} data-testid="occasionTest-option">{event}</option>);
                     })
                   }
                   </select>
