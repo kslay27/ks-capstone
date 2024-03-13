@@ -13,29 +13,31 @@ function BookingForm(props) {
     props.submitForm(e);
   }
 
+  // Updates times when date is changed
   const handleChange =(e) => {
     setDate(e);
     props.dispatch(e);
   }
   
+  // Use to check if props are updated
   useEffect(() => {
-    console.log("Props: ", props);
-   }, [props.availableTimes]);
+   }, [props]);
 
 
     return (
       <header>
         <section>
-          <form id='booking-form' onSubmit={handleSubmit}>
+        <h3>Complete the table reservation form:</h3>
+          <form id='booking-form' aria-label="Reserve a Table" onSubmit={handleSubmit}>
             <fieldset className="formFieldset">
               <div>
                 <label htmlFor='date'>Choose a Date:</label>
-                <input id='date' value={date} onChange={(e) => handleChange(e.target.value)} type='date' required/>
+                <input id='date' value={date} data-testid="date" onChange={(e) => handleChange(e.target.value)} type='date' required/>
               </div>
 
               <div>
                 <label htmlFor='time'>Choose a Time:</label>
-                <select id='time' value={time} onChange={(e) => setTime(e.target.value)}>
+                <select id='time'  value={time} onChange={(e) => setTime(e.target.value)}>
                   <option value=''>Select a Time</option>
                   {
                     props.availableTimes.map( (time) => {
@@ -44,25 +46,25 @@ function BookingForm(props) {
                   }
                 </select>
               </div>
-
+             
               <div>
                 <label htmlFor='guests'>Number of Guests:</label>
-                <input id='guests' min='1' style={{width:"70px"}} value={guests} onChange={(e) => setGuests(e.target.value)} type='number' placeholder="2"/>
+                <input id='guests' min='1' style={{width:"70px"}} value={guests} onChange={(e) => setGuests(e.target.value)} type='number' placeholder="0"/>
               </div>
 
               <div>
                 <label htmlFor='occasion'>Select an Occasion:</label>
-                <select id='occasion' value={occasion} onChange={(e) => setOccasion(e.target.value)}>
+                <select id='occasion' data-testid="select" value={occasion} onChange={(e) => setOccasion(e.target.value)}>
                   <option value=''>Select an Occasion</option>
                   {
                     occasions.map( (event) => {
-                      return(<option key={event}>{event}</option>);
+                      return(<option key={event} data-testid="select-option">{event}</option>);
                     })
                   }
                   </select>
                 </div>
                 <div>
-                  <button className="btnBooking" type="submit" form="booking-form">Make Your Reservation</button>
+                  <button aria-label="On Click" className="btnBooking" type="submit" form="booking-form">Make Your Reservation</button>
                 </div>
             </fieldset>
           </form>

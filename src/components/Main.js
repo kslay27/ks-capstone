@@ -4,7 +4,9 @@ import Header from './Header';
 import BookingPage from './BookingPage';
 import BookingConfirmation from './BookingConfirmation';
 function Main() {
-  const times = [
+
+  // Make times update between two arrays if day is even?
+  const evenTimes = [
     "5:00",
     "7:00",
     "7:30",
@@ -14,18 +16,38 @@ function Main() {
     "9:30",
   ]
 
-  const initialState = {availableTimes: times};
-  const [state, dispatch] = useReducer(updateTimes, initialState);
+  const oddTimes = [
+    "10:00",
+    "10:30",
+    "11:30",
+    "12:00",
+    "1:00",
+    "1:15",
+    "1:30",
+  ]
 
-  const submitAPI= function(formData) {
+   // API was not working from script given by coursera. Making own here
+   const submitAPI= function(formData) {
     return true;
   }
 
+  const fetchAPI = function(date) {
+    let day = date.getDate(); // Doesn't return exact day for some reason but times/dates update appropriately
+    if(day % 2 == 0 ){
+      return evenTimes;
+    } else {
+      return oddTimes;
+    }
+  }
+
+  const initialState = {availableTimes: evenTimes};
+  const [state, dispatch] = useReducer(updateTimes, initialState);
+
+ 
+
   function updateTimes(state, date) {
-    console.log("State: ", state);
-    console.log("Date: ", date);
-    
-    return {availableTimes: times}
+
+    return {availableTimes: fetchAPI(new Date(date))}
   }
 
   /* Submit Form and Navigate to Confirmation Page */
