@@ -4,6 +4,7 @@ import Header from './Header';
 import BookingPage from './BookingPage';
 import BookingConfirmation from './BookingConfirmation';
 import Menu from './Menu';
+
 function Main() {
 
   // Make times update between two arrays if day is even?

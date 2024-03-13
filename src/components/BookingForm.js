@@ -46,7 +46,7 @@ function BookingForm(props) {
                   }
                 </select>
               </div>
-             
+
               <div>
                 <label htmlFor='guests'>Number of Guests:</label>
                 <input id='guests' data-testid="guestsTest" type='number' min="1" style={{width:"70px"}} value={guests} onChange={(e) => setGuests(e.target.value)} required/>
