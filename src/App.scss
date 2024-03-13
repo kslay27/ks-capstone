@@ -45,13 +45,6 @@ nav ul li a:hover{
   cursor: pointer;
 }
 
-.bar {
-  width: 25px;
-  height: 3px;
-  background-color: black;
-  margin: 5px 0;
-}
-
 .nav-links {
   list-style: none;
   display: flex;
@@ -145,17 +138,19 @@ input, label{
   border-radius: 4px;
 }
 
-.confirm {
+.confirmRes {
   display: flex;
   /* align-items: center; */
   justify-content: center;
 }
 
-/* menu items */
+/* Menu items */
 
 .menu-container{
-  margin: 110px auto;
-  padding: 10px 13%;
+  margin: 40px auto;
+  padding: 10px 15%;
+  padding-top: 0px;
+  margin-top: 0px;
 }
 
 .menu-container h2{
@@ -169,28 +164,6 @@ input, label{
   flex-wrap: wrap;
 }
 
-.cards{
-  margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem 1rem;
-}
-
-.menu-items{
-  /* height: 400px; */
-  width: 350px;
-  background: #a9c8be;
-  border-radius: 8px;
-}
-
-.menu-container img{
-  width: 100%;
-  height: 233px;
-  border-radius: 8px;
-}
-
 .menu-content{
   padding: 5px 15px;
 }
@@ -200,16 +173,26 @@ input, label{
   justify-content: space-between;
 }
 
-button {
-  background-color: $primary;
-  color: black;
-  padding: 14px 18px;
-  border: none;
-  text-decoration: none;
-  border-radius: 12px;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
+.cards{
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem 1rem;
+}
+
+.cards img{
+  width: 100%;
+  height: 233px;
+  border-radius: 8px;
+}
+
+.menu-items{
+  /* height: 400px; */
+  width: 350px;
+  background: #a9c8be;
+  border-radius: 8px;
 }
 
 .orderBtn{
@@ -219,6 +202,9 @@ button {
   font-weight: 600;
 }
 
+
+
+/* Footer */
 footer section{
   padding: 10px 13%;
   display: flex;
@@ -226,13 +212,13 @@ footer section{
   align-items: flex-start;
 }
 
-.company-info img{
+.restaurant-info img{
   margin-top: 12px;
   cursor: pointer;
   width: 200px;
 }
 
-.company-info p{
+.restaurant-info p{
   width: 320px;
 }
 
@@ -248,6 +234,22 @@ footer ul li{
   padding: 8px 0;
 }
 
+/* General */
+
+button {
+  background-color: $primary;
+  color: black;
+  padding: 14px 18px;
+  border: none;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+/* Smaller Screen */
 
 @media screen and (max-width: 768px){
   .menu-icon {
@@ -272,10 +274,6 @@ footer ul li{
 
   nav ul li a{
     color: #fff;
-  }
-
-  .bar{
-    background: #333333;
   }
 
   .banner-img{
@@ -307,7 +305,7 @@ footer ul li{
     flex-direction: column;
   }
 
-  .company-info p{
+  .restaurant-info p{
     width: 100%;
   }
 }

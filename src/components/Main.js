@@ -3,6 +3,7 @@ import {Route, Routes, useNavigate} from 'react-router-dom';
 import Header from './Header';
 import BookingPage from './BookingPage';
 import BookingConfirmation from './BookingConfirmation';
+import Menu from './Menu';
 function Main() {
 
   // Make times update between two arrays if day is even?
@@ -61,6 +62,8 @@ function Main() {
           <Route path="/" element={<Header/>}/>
           <Route path="/booking" element={<BookingPage availableTimes={state.availableTimes} dispatch={dispatch} submitForm={submitForm}/>}/>
           <Route path="/confirmation" element={<BookingConfirmation/>}/>
+          <Route path="/menu" element={<Menu/>}/>
+
         </Routes>
       </main>
   );

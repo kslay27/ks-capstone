@@ -23,9 +23,9 @@ function Nav() {
         <ul className={`nav-links ${menuOpen ? "visible" : ""}`}>
           <li><a href="/">Home</a></li>
           <li><a href="/">About</a></li>
-          <li><a href="/">Menu</a></li>
+          <li><a href="/menu">Menu</a></li>
           <li data-testid='link'><a href="/booking" >Reservations</a></li>
-          <li><a href="/">Order Online</a></li>
+          <li><a href="/menu">Order Online</a></li>
           <li><a href="/">Login</a></li>
 
         </ul>
